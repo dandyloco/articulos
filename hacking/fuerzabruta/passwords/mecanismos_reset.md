@@ -5,27 +5,14 @@ Sabemos que las contraseñas son necesarias para la autenticación en diferentes
 
 Sin embargo, es bastante común que las empresas pasen por alto securizar los mecanismos de restablecimiento de contraseñas que ofrecen a sus empleados, usados por ejemplo, ante un olvido de la misma. 
 
-En este artículo, veremos cómo aprovecharnos de esta circunstancia en dos métodos frecuentemente usados: Preguntas/Respuestas y OTP.
-
-# Preguntas/Respuestas
-Las preguntas de seguridad se pueden utilizar durante el proceso de restablecimiento de contraseña. El usuario, configura las respuestas a esas preguntas, según su vida privada, gustos, etc. Algunas preguntas de ejemplo serían:
-
-- Nombre del padre/madre.
-- Nombre de la mascota.
-- ¿Cuándo es tu cumpleaños?
-- Color favorito
-- etc.
-
-Personalmente, no es método que me inspire mucha confianza como sistema único de restablecimiento. Con un poco de OSSINT un atacante puede obtener la información necesaria para responderlas.
-
-
+En este artículo, veremos cómo aprovecharnos de esta circunstancia en un sistema de restablecimiento de contraseña que usa OTP.
 
 # OTP
 Primero, explicaremos qué es OTP. OTP, del inglés One-Time Password, es una contraseña de un solo uso y, por tanto, pierde su validez después de su uso. Habitualmente, es usada como parte de de una autenticación de doble factor o como parte de los mecanismos de restablecimiento de contraseñas. Esta contraseña suele enviarse por correo electrónico o por SMS, para que pueda ser introducida por el interesado.
 
 A continuación, simularemos un ataque a un mecacanismo OTP que no ha sido securizado convenientemente. Partiremos de un correo electrónico obtenido en fases previas de enumeración: MasonJenkins@ymail.com
 
-Según podemos ver en la imagen, tenemos acceso a un punto final de una API que permite restablecer la contraseña de un usuario, añadiendo como parámetros el correo electrónico asociado, la password OTP y la nueva clave. En la descripción del propio punto final, vemos que la clave OTP supuestamente tiene una duración máxima de 5 minutos. Dado que no tenemos el control de la cuenta de correo electrónico del usuario, intentaremos un ataque por fuerza bruta al mecanismo OTP que deberá completarse antes de esos 5 minutos.
+Según podemos ver en la imagen, tenemos acceso a un punto final de una API que permite restablecer la contraseña de un usuario, añadiendo como parámetros el correo electrónico asociado, la clave OTP y la nueva clave. En la descripción del propio punto final, vemos que la clave OTP supuestamente tiene una duración máxima de 5 minutos. Dado que no tenemos el control de la cuenta de correo electrónico del usuario, intentaremos un ataque por fuerza bruta al mecanismo OTP que deberá completarse antes de esos 5 minutos.
 
 ![api_otp](img/reset_password_2.png)
 
