@@ -48,7 +48,8 @@ Requests/sec.: 193.1555
 ```
 Como vemos en el resultado de la ejecución de wfuzz, conseguimos en menos de un minuto el código OTP y, por tanto, cambiar la contraseña al usuario.
 
-
+# Prevención
+Para intentar mitigar este tipo de ataques sobre los sistemas OTP, sería importante implementar mecanismos que limiten el número de intentos erróneos sucesivos de restablecimiento de contraseña por IP de origen durante un tiempo determinado. 
 
 
 
