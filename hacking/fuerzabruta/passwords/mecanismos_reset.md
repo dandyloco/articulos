@@ -18,7 +18,7 @@ Según podemos ver en la imagen, tenemos acceso a un punto final de una API que 
 
 ![api_otp](img/reset_password_2.png)
 
-Tenemos a nuestra disposición otro método de la API, que permite el envío de la clave OTP a la dirección de correo electrónico.   
+Tenemos a nuestra disposición otro método de la API, que permite el envío de la clave OTP a una dirección de correo electrónico asociada a una cuenta de usuario.
 
 ![api_otp](img/reset_password_1.png)
 
