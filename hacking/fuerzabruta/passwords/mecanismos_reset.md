@@ -16,6 +16,8 @@ A continuación, simularemos un ataque a un mecacanismo OTP que no ha sido secur
 
 Según podemos ver en la imagen, tenemos acceso a un punto final de una API que permite restablecer la contraseña de un usuario, añadiendo como parámetro su correo electrónico.
 
+![api_otp](img/reset_password_1.png)
+
 
 
 
