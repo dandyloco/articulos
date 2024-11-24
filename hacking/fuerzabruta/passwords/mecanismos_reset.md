@@ -8,6 +8,16 @@ Sin embargo, es bastante común que las empresas pasen por alto securizar los me
 En este artículo, veremos cómo aprovecharnos de esta circunstancia en dos métodos frecuentemente usados: Preguntas/Respuestas y OTP.
 
 # Preguntas/Respuestas
+Las preguntas de seguridad se pueden utilizar durante el proceso de restablecimiento de contraseña. El usuario, configura las respuestas a esas preguntas, según su vida privada, gustos, etc. Algunas preguntas de ejemplo serían:
+
+- Nombre del padre/madre.
+- Nombre de la mascota.
+- ¿Cuándo es tu cumpleaños?
+- etc.
+
+Personalmente, no es método que me inspire mucha confianza como sistema único de restablecimiento. Con un poco de OSSINT un atacante puede obtener la información necesaria para responderlas.
+
+
 
 # OTP
 Primero, explicaremos qué es OTP. OTP, del inglés One-Time Password, es una contraseña de un solo uso y, por tanto, pierde su validez después de su uso. Habitualmente, es usada como parte de de una autenticación de doble factor o como parte de los mecanismos de restablecimiento de contraseñas. Esta contraseña suele enviarse por correo electrónico o por SMS, para que pueda ser introducida por el interesado.
