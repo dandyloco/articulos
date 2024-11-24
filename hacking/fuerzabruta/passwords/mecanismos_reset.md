@@ -15,7 +15,7 @@ Primero, explicaremos qué es OTP. OTP, del inglés One-Time Password, es una co
 A continuación, simularemos un ataque a un mecacanismo OTP que no ha sido securizado convenientemente. Partiremos de un correo electrónico obtenido en fases previas de enumeración: MasonJenkins@ymail.com
 
 Según podemos ver en la imagen, tenemos acceso a un punto final de una API que permite restablecer la contraseña de un usuario, añadiendo como parámetro su correo electrónico.
-![api_otp](img/reset_password_1.png)
+
 
 
 
