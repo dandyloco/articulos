@@ -6,7 +6,7 @@ Sabemos que las contraseñas son necesarias para la autenticación en diferentes
 Sin embargo, otro vector de ataque son los mecanismos de auto restablecimiento de contraseñas que las empresas ofrecen a sus empleados, por ejemplo, ante un olvido de la misma. En este artículo, veremos cómo aprovecharnos de un mecanismo de restablecimiento de contraseña que usa OTP.
 
 # OTP
-Primero, explicaremos qué es OTP. OTP, del inglés One-Time Password, es una contraseña de un solo uso y, por tanto, pierde su validez después de su uso. Habitualmente, es usada como parte de de una autenticación de doble factor o como parte de los mecanismos de restablecimiento de contraseñas. Esta contraseña suele enviarse por correo electrónico o por SMS para que pueda ser introducida por el usuario, aunque también podría ser generada/visualizada mediante aplicaciones como DUO o Microsoft Authenticator.
+Primero, explicaremos qué es OTP. OTP, del inglés One-Time Password, es una contraseña de un solo uso y, por tanto, pierde su validez después de su uso. Habitualmente, es usada como parte de de una autenticación de doble factor o como parte de los mecanismos de restablecimiento de contraseñas. Esta contraseña suele enviarse por correo electrónico o por SMS para que pueda ser introducida por el usuario. También podría ser generada/visualizada mediante aplicaciones como DUO o Microsoft Authenticator.
 
 A continuación, simularemos un ataque a un mecanismo OTP que envía la clave mediante correo electrónico. Partiremos del correo electrónico obtenido en fases previas de enumeración: MasonJenkins@ymail.com
 
