@@ -13,6 +13,7 @@ Las preguntas de seguridad se pueden utilizar durante el proceso de restablecimi
 - Nombre del padre/madre.
 - Nombre de la mascota.
 - ¿Cuándo es tu cumpleaños?
+- Color favorito
 - etc.
 
 Personalmente, no es método que me inspire mucha confianza como sistema único de restablecimiento. Con un poco de OSSINT un atacante puede obtener la información necesaria para responderlas.
