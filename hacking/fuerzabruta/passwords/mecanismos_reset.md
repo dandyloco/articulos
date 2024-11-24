@@ -14,7 +14,7 @@ Primero, explicaremos qué es OTP. OTP, del inglés One-Time Password, es una co
 
 A continuación, simularemos un ataque a un mecacanismo OTP que no ha sido securizado convenientemente. Partiremos de un correo electrónico obtenido en fases previas de enumeración: MasonJenkins@ymail.com
 
-Según podemos ver en la imagen, tenemos acceso a un punto final de una API que permite restablecer la contraseña de un usuario, añadiendo como parámetros el correo electrónico asociado, la password OTP y la nueva clave. En la descripción del propio punto final, vemos que la clave OTP supuestamente tiene una duración máxima de 5 minutos. Dado que no tenemos acceso a la cuenta de correo electrónico, intentaremos un ataque por fuerza bruta al mecanismo OTP que deberá completarse antes de esos 5 minutos.
+Según podemos ver en la imagen, tenemos acceso a un punto final de una API que permite restablecer la contraseña de un usuario, añadiendo como parámetros el correo electrónico asociado, la password OTP y la nueva clave. En la descripción del propio punto final, vemos que la clave OTP supuestamente tiene una duración máxima de 5 minutos. Dado que no tenemos el control de la cuenta de correo electrónico del usuario, intentaremos un ataque por fuerza bruta al mecanismo OTP que deberá completarse antes de esos 5 minutos.
 
 ![api_otp](img/reset_password_2.png)
 
