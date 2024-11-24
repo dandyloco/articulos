@@ -10,7 +10,7 @@ En este artículo, veremos cómo aprovecharnos de esta circunstancia en dos mét
 # Preguntas/Respuestas
 
 # OTP
-Primero, explicaremos qué es OTP. OTP, del inglés One-Time Password, es una contraseña de un solo uso y, por tanto, pierde su validez después de su uso. Habitualmente, es usada como parte de de una autenticación de doble factor. Esta contraseña suele enviarse por correo electrónico o por SMS, para que pueda ser introducida por el interesado.
+Primero, explicaremos qué es OTP. OTP, del inglés One-Time Password, es una contraseña de un solo uso y, por tanto, pierde su validez después de su uso. Habitualmente, es usada como parte de de una autenticación de doble factor o como parte de los mecanismos de restablecimiento de contraseñas. Esta contraseña suele enviarse por correo electrónico o por SMS, para que pueda ser introducida por el interesado.
 
 A continuación, simularemos un ataque a un mecacanismo OTP que no ha sido securizado convenientemente. Partiremos de un correo electrónico obtenido en fases previas de enumeración: MasonJenkins@ymail.com
 
