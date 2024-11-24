@@ -3,16 +3,14 @@
 # Atacando a los sistemas de restablecimiento de contraseñas
 Sabemos que las contraseñas son necesarias para la autenticación en diferentes tipos de sistemas. Las empresas, cada vez más por suerte, cuidan que sus políticas de contraseñas sean lo suficientemente robustas para forzar a sus empleados a que sigan las mejores prácticas e intentar impedir que un atacante pueda adivinarlas por fuerza bruta.
 
-Sin embargo, es bastante común que las empresas pasen por alto securizar los mecanismos de restablecimiento de contraseñas que ofrecen a sus empleados, usados, por ejemplo, ante un olvido de la misma.
-
-En este artículo, veremos cómo aprovecharnos de esta circunstancia en un sistema de restablecimiento de contraseña que usa OTP.
+Sin embargo, otro vector de ataque son los mecanismos de auto restablecimiento de contraseñas que las empresas ofrecen a sus empleados usados, por ejemplo, ante un olvido de la misma. En este artículo, veremos cómo aprovecharnos de esta circunstancia en un sistema de restablecimiento de contraseña que usa OTP.
 
 # OTP
 Primero, explicaremos qué es OTP. OTP, del inglés One-Time Password, es una contraseña de un solo uso y, por tanto, pierde su validez después de su uso. Habitualmente, es usada como parte de de una autenticación de doble factor o como parte de los mecanismos de restablecimiento de contraseñas. Esta contraseña suele enviarse por correo electrónico o por SMS, para que pueda ser introducida por el interesado.
 
-A continuación, simularemos un ataque a un mecanismo OTP que no ha sido securizado convenientemente. Partiremos de un correo electrónico obtenido en fases previas de enumeración: MasonJenkins@ymail.com
+A continuación, simularemos un ataque a un mecanismo OTP. Partiremos de un correo electrónico obtenido en fases previas de enumeración: MasonJenkins@ymail.com
 
-Según podemos ver en la imagen, tenemos acceso a un punto final de una API que permite restablecer la contraseña de un usuario, añadiendo como parámetros el correo electrónico asociado, la clave OTP y la nueva clave. En la descripción del propio punto final, vemos que la clave OTP supuestamente tiene una duración máxima de 5 minutos. Dado que no tenemos el control de la cuenta de correo electrónico del usuario, intentaremos un ataque por fuerza bruta al mecanismo OTP que deberá completarse antes de esos 5 minutos.
+Según podemos ver en la imagen, tenemos acceso a un punto final de una API que permite restablecer la contraseña de un usuario, añadiendo como parámetros el correo electrónico asociado, la clave OTP y la nueva clave final. En la descripción del propio punto final, vemos que la clave OTP supuestamente tiene una duración máxima de 5 minutos. Dado que no tenemos el control de la cuenta de correo electrónico del usuario, intentaremos un ataque por fuerza bruta al mecanismo OTP que deberá completarse antes de esos 5 minutos.
 
 ![api_otp](img/reset_password_2.png)
 
@@ -26,9 +24,10 @@ Realizamos la petición de restablecimiento de contraseña, para que se genere l
 {"SuccessStatus":true}
 ```
 
-No es difícil encontrar mecanismos OTP que devuelven contraseñas de entre 4 a 6 carácteres, todos numéricos. A continuzación, realizamos nuestro ataque de fuerza bruta con wfuzz. Con el parámetro "--hh" ocultamos las peticiones fallidas, que devuelven un total de 23 carácteres ("SuccessStatus": false). 
+Es habitual encontrar mecanismos OTP que devuelven contraseñas de entre 4 a 6 carácteres, todos numéricos. A continuzación, realizamos nuestro ataque de fuerza bruta con wfuzz, con un rango desde el 0001 hasta el . Con el parámetro "--hh" ocultamos las peticiones fallidas, que devuelven un total de 23 carácteres ("SuccessStatus": false). 
 ```bash
-# wfuzz -c --hh 23  --hc 404 -u http://94.237.60.154:52829/api/v1/authentication/customers/passwords/resets -z range,1-9999 -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "NewPassword": "Test1234", "OTP":"FUZZ"}'
+#wfuzz -c  --hc 404 -u http://94.237.59.180:50815/api/v1/authentication/customers/passwords/resets -z range,0000-9999 -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "NewPassword": "Test1234", "OTP":"FUZZ"}'
+
 ********************************************************
 * Wfuzz 3.1.0 - The Web Fuzzer                         *
 ********************************************************
