@@ -1,1 +1,1 @@
-Fuerza bruta en sistemas de reinicio de contraseña.
+![portada_mongo](img/reset_password_portada.png)
