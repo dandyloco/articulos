@@ -49,7 +49,7 @@ Filtered Requests: 9998
 Requests/sec.: 193.1555
 
 ```
-Como puedes obser
+Como vemos en el resultado de wfuzz, conseguimos en menos de un minuto, el código OTP y, por tanto, cambiar la contraseña.
 
 
 
