@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="imag/rsa-kryptosysteme.png" alt="RSA Portada" width="400"  />
+    <img src="img/rsa-kryptosysteme.png" alt="RSA Portada" width="400"  />
 </p>
 
 # ¿Qué es RSA?
