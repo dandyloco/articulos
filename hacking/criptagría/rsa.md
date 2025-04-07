@@ -1,1 +1,1 @@
-![portada_mongo](img/rsa-kryptosysteme.jpg)
+![portada_mongo](img/rsa-kryptosysteme.jpg) 
