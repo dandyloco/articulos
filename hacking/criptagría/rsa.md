@@ -1,7 +1,7 @@
 ![portada_rsa](img/rsa-kryptosysteme.png) 
 
 # ¿Qué es RSA?
-Es un algoritmo de cifrado asímétrico y, por tanto, trabaja con dos claves. Una clave pública y una clave privada.
+RSA es un algoritmo de cifrado asímétrico y, por tanto, trabaja con dos claves. Una clave pública y una clave privada.
 
 Un texto plano, antes de transmitirlo al destintario, podríamos cifrarlo con la clave pública. El receptor del mensaje, si tiene la clave privada podría descifrar el mensaje. Esto también funciona a la inversa, es decir, si ciframos el mensaje con la clave privada podrá ser descifrado mediante la clave pública.
 
