@@ -11,7 +11,7 @@ Un texto plano, antes de transmitirlo al destinatario, podríamos cifrarlo con l
     <img src="img/criptografiaAsimetrica.png" alt="Transmision mensaje RSA" width="300"  />
 </p>
 
-Sin embargo, si alguien mal intencionado interceptara la comunicación, no podría ver el mensaje dado que no poseerá la clave para descifrarlo, salvo que consiga romper el cifrado. Esto me lleva al siguiente punto, la importancia de la longitud de las claves RSA.
+Sin embargo, si alguien mal intencionado interceptara la comunicación, no podría ver el mensaje dado que no poseerá la clave para descifrarlo, salvo que consiga romper el cifrado. Y, esto último, me lleva al siguiente punto, la importancia de la longitud de las claves RSA.
 
 # POC: Importantacia de la longitud de las claves RSA
 
