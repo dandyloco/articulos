@@ -12,6 +12,7 @@ Un texto plano, antes de transmitirlo al destinatario, podríamos cifrarlo con l
 </p>
 
 Sin embargo, si alguien mal intencionado interceptara la comunicación, no podría ver el mensaje dado que no poseerá la clave para descifrarlo, salvo que consiga romper el cifrado. Y, esto último, me lleva al siguiente punto, la importancia de la longitud de las claves RSA.
+<br>
 
 # POC: Importantacia de la longitud de las claves RSA
 
