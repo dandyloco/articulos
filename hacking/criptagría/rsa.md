@@ -1,4 +1,6 @@
-![portada_rsa](img/rsa-kryptosysteme.png) 
+<p align="center">
+    <img src="imag/rsa-kryptosysteme.png" alt="Usage" width="400"  />
+</p>
 
 # ¿Qué es RSA?
 RSA es un algoritmo de cifrado asímétrico y, por tanto, trabaja con dos claves. Una clave pública y una clave privada.
