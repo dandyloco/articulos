@@ -108,8 +108,8 @@ El comando anterior generará un nuevo archivo llamado mensaje_secreto.txt. Si i
 X�d検�d!�(#     
 ```
 
-# POC: ¿Cómo podemos descifrar nuestro mensaje si no tenemos la clave pública?
-Partimos de un escenario en el que solo poseemos la clave pública (public.pem) y el mensaje cifrado (mensaje_secreto.txt). Para poder descifrar el mensaje, debemos conseguir la clave privada.
+# POC: ¿Cómo podemos descifrar nuestro mensaje si no tenemos la clave privada?
+Partimos de un escenario en el que solo poseemos la clave pública (public.pem) y el mensaje cifrado (mensaje_secreto.txt). Para poder descifrar el mensaje, como hemos visto anteiormente, debemos conseguir la clave privada.
 
 Los valores de "n" y "e", necesarios para poder construir la clave privada, se pueden obtener de la clave pública:
 ```bash
