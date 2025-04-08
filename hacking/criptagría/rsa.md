@@ -131,6 +131,8 @@ Teniendo esto en mente, podemos apoyarnos en la libreria SageMath para obtener l
 > SageMath, conocido anteriormente como Sage, es un sistema algebraico computacional que destaca por estar construido sobre paquetes matemáticos ya contrastados como NumPy, Sympy, PARI/GP o Maxima y por acceder a sus potencias combinadas a través de un lenguaje común basado en Python.
 > https://sagemanifolds.obspm.fr/index.html
 
+Este sería el script resultante.
+
 ```bash
 #/usr/bin/env python3
 from Crypto.PublicKey import RSA
@@ -186,6 +188,21 @@ print(key.exportKey().decode())
 end_time = time.time()
 print(f"[+] Tiempo empleado: {end_time - start_time} segundos·")
 ```
+</br> 
+Su ejecucción, nos devolvería la clave privada en menos de 5 minutos.
+```bash
+❯python3 decrypt_message.py 
+1451730470513778492236629598992166035067
+2425967623052370772757633156976982469681
+-----BEGIN RSA PRIVATE KEY-----
+MIGsAgEAAiEealEX7v6ob1L6oQgdQ7N5oMTL5L3zyY1ednofzGYveYsCAwEAAQIh
+DJwDFqsMhIPyoNlV5dwFciiNPXIxw4Tzip/5dnJ7QPnBAhEERCkeUbPqX9Fmc+lW
+dLAeewIRByEYXnKHAJkGLfeRFWNNrDECEDFtgvfDornPakmYp9cEGX0CEQKaxbNj
+tgyy2z4Z7yhYMj1RAhEDFVxlFotvYZuSQ50G2V9JCQ==
+-----END RSA PRIVATE KEY-----
+[+] Tiempo empleado: 264.9520308971405 segundos·
+```
+
 
 
 
