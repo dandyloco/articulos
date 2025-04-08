@@ -18,6 +18,7 @@ Sin embargo, si alguien mal intencionado interceptara la comunicación, no podr�
 # ¿Cómo podemos generar una clave privada?
 A continuación, veremos cómo podemos generar una clave privada mediante Python y la librería Crypto.
 
+Este sería el código completo de nuestro script, que genera nuestra clave privada.
 ```bash
 from Crypto.PublicKey import RSA
 from pwn import *
