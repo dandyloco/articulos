@@ -110,7 +110,7 @@ X�d検�d!�(#
 
 # POC ¿Cómo podemos descifrar nuestro mensaje si no tenemos la clave pública?
 Partimos de un escenario, en el que solo poseemos la clave pública (public.pem) y el mensaje cifrado (mensaje_secreto.txt). 
-Para poder descifrar el mensaje, debemos conseguir la clave privada. Por tanto, nuestro primer objetivo es intentar obtener los valores de los números primos "p" y "q". </br>
+Para poder descifrar el mensaje, debemos conseguir la clave privada. </br>
 
 Los valores de "n" y "e", los podemos averiguar de la clave pública.
 ```bash
