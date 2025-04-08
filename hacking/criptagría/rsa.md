@@ -18,7 +18,44 @@ Sin embargo, si alguien mal intencionado interceptara la comunicación, no podr�
 # ¿Cómo podemos generar una clave privada?
 A continuación, veremos cómo podemos generar una clave privada mediante Python y la librería Crypto.
 
-Lo primero que 
+```bash
+from Crypto.PublicKey import RSA
+from pwn import *
+
+# Numeros primos
+p=2425967623052370772757633156976982469681
+q=1451730470513778492236629598992166035067
+
+# n se obtiene del producto de "p" y "q"
+n=p*q
+
+# e es una valor fijo
+e=65537
+
+# m la obtenemos de la siguiente formula
+m=n-(p+q-1)
+
+# https://stackoverflow.com/questions/4798654/modular-multiplicative-inverse-function-in-python
+def egcd(a, b):
+    if a == 0:
+        return (b, 0, 1)
+    else:
+        g, y, x = egcd(b % a, a)
+        return (g, x - (b // a) * y, y)
+
+def modinv(a, m):
+    g, x, y = egcd(a, m)
+    if g != 1:
+        raise Exception('modular inverse does not exist')
+    else:
+        return x % m
+
+# Función modular multiplicativa inversa
+d=modinv(e, m)
+
+key=RSA.construct((n, e, d, p, q))
+print(key.exportKey().decode())
+```
 
 
 
