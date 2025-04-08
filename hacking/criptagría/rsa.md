@@ -210,8 +210,8 @@ Guardaremos la clave privada que el script nos ha generado, en un fichero llamad
 Mensaje secreto
 ```
 
-
-
+# Conclusión
+Es fundamental que las claves pública y privada de RSA sean lo suficientemente largas para garantizar la seguridad del sistema. Si bien RSA es un algoritmo robusto, la longitud de las claves juega un papel crucial en su efectividad. Con claves de longitud pequeña, es posible refactorizar los valores de "p" y "q", lo que compromete la integridad del sistema. Por lo tanto, a medida que aumentan los avances en potencia computacional, se hace necesario utilizar claves de mayor longitud para mantener un nivel de seguridad adecuado. La recomendación actual es utilizar claves de al menos 2048 bits.
 
 
 
