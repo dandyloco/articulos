@@ -67,6 +67,8 @@ key=RSA.construct((n, e, d, p, q))
 print(key.exportKey().decode())
 ```
 
+# ¿Cómo podemos generar nuestra clave pública a raiz de nuestra clave privada?
+
 
 
 
