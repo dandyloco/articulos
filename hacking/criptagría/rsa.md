@@ -108,6 +108,8 @@ El comando anterior, nos habrá generado un nuevo fichero llamado mensaje_secret
 X�d検�d!�(#     
 ```
 
+# ¿Cómo podemos descifrar nuestro mensaje si no tenemos la clave pública?
+
 
 
 
