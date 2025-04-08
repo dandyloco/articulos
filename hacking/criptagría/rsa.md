@@ -24,7 +24,7 @@ A continuación, generaremos nuestra clave privada de forma "manual" (sin usar o
 - "m": Que se obtiene de aplicar la fórmula n-(p+q-1)
 - "d": Que es el resultado de realizar la operación modular multiplicativa inversa de "e" y "m". A continuación, veremos cómo podemos generar nuestra clave privada mediante Python y la librería Crypto.
 
-Este sería el código completo de nuestro script, que genera nuestra clave privada.
+Este sería el código completo de nuestro script, que generará nuestra clave privada.
 ```bash
 #/usr/bin/env python3
 
