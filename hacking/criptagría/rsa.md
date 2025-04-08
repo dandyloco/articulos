@@ -44,6 +44,7 @@ e=65537
 # m la obtenemos de la siguiente formula
 m=n-(p+q-1)
 
+# Definimos nuestra función modular multiplicativa inversa
 # https://stackoverflow.com/questions/4798654/modular-multiplicative-inverse-function-in-python
 def egcd(a, b):
     if a == 0:
