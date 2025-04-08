@@ -16,7 +16,7 @@ Sin embargo, si alguien mal intencionado interceptara la comunicación, no podr�
 <br>
 
 # ¿Cómo podemos generar nuestra clave privada?
-Para poder generar nuestra clave privada necesitaremos una serie de variables:
+A continuación, generaremos nuestra clave privada de forma "manual" (sin usar openssl, por ejemplo). Esto permitirá conocer ciertos conceptos. Para ello, necesitaremos los valores de una serie de variables:
 
 - "p" y "q": Son dos números primos.
 - "n": Que es el resultado de multiplicar "p" y "q".
