@@ -22,7 +22,7 @@ A continuación, generaremos nuestra clave privada de forma "manual" (sin usar h
 - "n": Que es el resultado de multiplicar "p" y "q".
 - "e": Suele ser un valor fijo, 65537
 - "m": Que se obtiene de aplicar la fórmula n-(p+q-1)
-- "d": Que es el resultado de realizar la operación modular multiplicativa inversa de "e" y "m". A continuación, veremos cómo podemos generar nuestra clave privada mediante Python y la librería Crypto.
+- "d": Que es el resultado de realizar la operación modular multiplicativa inversa de "e" y "m". 
 
 A continuación, veremos cómo podemos generar nuestra clave privada mediante Python y la librería Crypto. Este es el código completo de nuestro script, que generará nuestra clave privada.
 ```bash
