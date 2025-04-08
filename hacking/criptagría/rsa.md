@@ -20,6 +20,8 @@ A continuación, veremos cómo podemos generar una clave privada mediante Python
 
 Este sería el código completo de nuestro script, que genera nuestra clave privada.
 ```bash
+#/usr/bin/env python3
+
 from Crypto.PublicKey import RSA
 from pwn import *
 
