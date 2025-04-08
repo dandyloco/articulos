@@ -3,20 +3,20 @@
 </p>
 
 # ¿Qué es RSA?
-RSA es un algoritmo de cifrado asímétrico y, por tanto, trabaja con dos claves. Una clave pública y una clave privada.
+RSA es un algoritmo de cifrado asimétrico y, por tanto, trabaja con dos claves: una clave pública y una clave privada.
 
-Un mensaje en texto plano, antes de transmitirlo al destinatario, podríamos cifrarlo con la clave pública. El receptor del mensaje, usando la clave privada, podría descifrar el mensaje. Esto también funciona a la inversa, es decir, si ciframos el mensaje con la clave privada podrá ser descifrado mediante la clave pública.
+Un mensaje en texto plano, antes de transmitirlo al destinatario, podría cifrarse con la clave pública. El receptor del mensaje, usando la clave privada, podría descifrarlo. Este proceso también funciona a la inversa: es decir, si ciframos el mensaje con la clave privada, podrá ser descifrado con la clave pública.
 
 Espero que con la siguiente imagen, quede un poco más claro este concepto:
 <p align="center">
     <img src="img/criptografiaAsimetrica.png" alt="Transmision mensaje RSA" width="300"  />
 </p>
 
-Sin embargo, si alguien mal intencionado interceptara la comunicación, no podría ver el mensaje dado que no poseerá la clave para descifrarlo, salvo que consiga romper el cifrado. Haremos una prueba de concepto, más adelante, donde veremos la importancia de tener claves con una longitud de adecuada para que no sea viable (o al menos dificultar al máximo) la ruptura de ese cifrado.
+Sin embargo, si alguien malintencionado interceptara la comunicación, no podría ver el mensaje, dado que no poseerá la clave para descifrarlo, salvo que consiga romper el cifrado. Realizaremos una prueba de concepto más adelante, donde veremos la importancia de tener claves con una longitud adecuada para que no sea viable (o al menos dificultar al máximo) la ruptura de ese cifrado.
 <br>
 
 # ¿Cómo podemos generar nuestra clave privada?
-A continuación, generaremos nuestra clave privada de forma "manual" (sin usar openssl, por ejemplo). Esto nos permitirá conocer ciertos conceptos. Para ello, necesitaremos los valores de una serie de variables:
+A continuación, generaremos nuestra clave privada de forma "manual" (sin usar herramientas como OpenSSL, por ejemplo). Esto nos permitirá conocer ciertos conceptos. Para ello, necesitaremos los valores de una serie de variables:
 
 - "p" y "q": Son dos números primos.
 - "n": Que es el resultado de multiplicar "p" y "q".
@@ -24,7 +24,7 @@ A continuación, generaremos nuestra clave privada de forma "manual" (sin usar o
 - "m": Que se obtiene de aplicar la fórmula n-(p+q-1)
 - "d": Que es el resultado de realizar la operación modular multiplicativa inversa de "e" y "m". A continuación, veremos cómo podemos generar nuestra clave privada mediante Python y la librería Crypto.
 
-Este sería el código completo de nuestro script, que generará nuestra clave privada.
+A continuación, veremos cómo podemos generar nuestra clave privada mediante Python y la librería Crypto. Este es el código completo de nuestro script, que generará nuestra clave privada.
 ```bash
 #/usr/bin/env python3
 
@@ -68,7 +68,7 @@ print(key.exportKey().decode())
 ```
 
 # ¿Cómo podemos generar nuestra clave pública a raiz de nuestra clave privada?
-La clave privada generada anteriormente por nuestro script, la guardaremos en un fichero llamado private.pem.
+La clave privada generada anteriormente por nuestro script la guardaremos en un archivo llamado private.pem.
 ```bash
 ❯ /bin/cat private.pem                                                                                                                                                  
 -----BEGIN RSA PRIVATE KEY-----
@@ -80,7 +80,7 @@ w6K5z2pJmKfXBBl9AhEB+gEsX+Hc0oTV+aL00Zl5iQ==
 
 ```
 
-Con el siguiente comando de Linux, a partir de nuestra clave privada, podemos crear la clave pública y la guardaremos un fichero llamado public.pem
+Con el siguiente comando de Linux, a partir de nuestra clave privada, podemos crear la clave pública y guardarla en un archivo llamado public.pem
 ```bash
 ❯ openssl rsa -in private.pem -pubout > public.pem                                                                                                                      
 writing RSA key
@@ -92,7 +92,7 @@ XnZ6H8xmL3mLAgMBAAE=
 ```
 
 # ¿Cómo podemos cifrar un mensaje con nuestra clave pública?
-Vamos a crear un fichero de texto, con el contenido "Mensaje secreto".
+Vamos a crear un archivo de texto con el contenido "Mensaje secreto":
 ```bash
 echo "Mensaje secreto" > mensaje.txt  
 ```
@@ -102,17 +102,16 @@ Para cifrarlo, ejecuraremos el siguiente comando:
 openssl pkeyutl --encrypt --inkey public.pem --pubin --in mensaje.txt --out mensaje_secreto.txt
 ```
 
-El comando anterior, nos habrá generado un nuevo fichero llamado mensaje_secreto.txt. Si intentamos ver su contenido, veremos que no somos capaces de leerlo.
+El comando anterior generará un nuevo archivo llamado mensaje_secreto.txt. Si intentamos ver su contenido, no podremos leerlo:
 ```bash
 ❯ /bin/cat mensaje_secreto.txt                                                                                                                                          
 X�d検�d!�(#     
 ```
 
 # POC: ¿Cómo podemos descifrar nuestro mensaje si no tenemos la clave pública?
-Partimos de un escenario, en el que solo poseemos la clave pública (public.pem) y el mensaje cifrado (mensaje_secreto.txt). 
-Para poder descifrar el mensaje, debemos conseguir la clave privada. </br>
+Partimos de un escenario en el que solo poseemos la clave pública (public.pem) y el mensaje cifrado (mensaje_secreto.txt). Para poder descifrar el mensaje, debemos conseguir la clave privada.
 
-Los valores de "n" y "e", necesarios para poder construir la clave privada, los podemos averiguar de la clave pública.
+Los valores de "n" y "e", necesarios para poder construir la clave privada, se pueden obtener de la clave pública:
 ```bash
 ❯ python3                                                                                                                                                               
 Type "help", "copyright", "credits" or "license" for more information.
@@ -126,13 +125,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-Teniendo esto en mente, podemos apoyarnos en la libreria SageMath para obtener los valores de "p" y "q".
+Teniendo esto en mente, podemos apoyarnos en la librería SageMath para obtener los valores de "p" y "q".
 > [!TIP]
 > SageMath, conocido anteriormente como Sage, es un sistema algebraico computacional que destaca por estar construido sobre paquetes matemáticos ya contrastados como NumPy, Sympy, PARI/GP o Maxima y por acceder a sus potencias combinadas a través de un lenguaje común basado en Python.
 > https://sagemanifolds.obspm.fr/index.html
 
-Este sería el script resultante.
-
+Este sería el script resultante:
 ```bash
 #/usr/bin/env python3
 from Crypto.PublicKey import RSA
@@ -189,7 +187,7 @@ end_time = time.time()
 print(f"[+] Tiempo empleado: {end_time - start_time} segundos·")
 ```
 </br> 
-Su ejecucción, nos devolvería la clave privada en menos de 5 minutos.
+Al ejecutar este script, obtendríamos la clave privada en menos de 5 minutos.
 
 ```bash
 ❯python3 decrypt_message.py 
@@ -204,7 +202,7 @@ tgyy2z4Z7yhYMj1RAhEDFVxlFotvYZuSQ50G2V9JCQ==
 [+] Tiempo empleado: 264.9520308971405 segundos·
 ```
 
-Guardaremos la clave privada que el script nos ha generado, en un fichero llamado private.pem. Por último, solo tenemos que usar la clave privada para descifrar el mensaje y ver su contenido.
+Guardaremos la clave privada que el script nos ha generado en un archivo llamado private.pem. Por último, solo tenemos que usar la clave privada para descifrar el mensaje y ver su contenido.
 ```bash
 ❯ openssl pkeyutl -decrypt -inkey private.pem -in mensaje_secreto.txt                                                                                                   
 Mensaje secreto
