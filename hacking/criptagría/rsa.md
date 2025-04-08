@@ -70,7 +70,7 @@ print(key.exportKey().decode())
 # ¿Cómo podemos generar nuestra clave pública a raiz de nuestra clave privada?
 La clave privada generada anteriormente por nuestro script, la guardaremos en un fichero llamado private.pem.
 ```bash
-❯ /bin/cat private.pem                                                                                                                                                                                                                   
+❯ /bin/cat private.pem                                                                                                                                                  
 -----BEGIN RSA PRIVATE KEY-----
 MIGsAgEAAiEealEX7v6ob1L6oQgdQ7N5oMTL5L3zyY1ednofzGYveYsCAwEAAQIh
 DJwDFqsMhIPyoNlV5dwFciiNPXIxw4Tzip/5dnJ7QPnBAhEHIRhecocAmQYt95EV
@@ -82,15 +82,31 @@ w6K5z2pJmKfXBBl9AhEB+gEsX+Hc0oTV+aL00Zl5iQ==
 
 Con el siguiente comando de Linux, a partir de nuestra clave privada, podemos crear la clave pública y la guardaremos un fichero llamado public.pem
 ```bash
-❯ openssl rsa -in private.pem -pubout > public.pem                                                                                                                                                                             
+❯ openssl rsa -in private.pem -pubout > public.pem                                                                                                                      
 writing RSA key
-❯ /bin/cat public.pem                                                                                                                                                                                                                    
+❯ /bin/cat public.pem                                                                                                                                                   
 -----BEGIN PUBLIC KEY-----
 MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhHmpRF+7+qG9S+qEIHUOzeaDEy+S988mN
 XnZ6H8xmL3mLAgMBAAE=
 -----END PUBLIC KEY-----
 ```
 
+# ¿Cómo podemos cifrar un mensaje con nuestra clave pública?
+Vamos a crear un fichero de texto, con el contenido "Mensaje secreto".
+```bash
+echo "Mensaje secreto" > mensaje.txt  
+```
+
+Para cifrarlo, ejecuraremos el siguiente comando:
+```bash
+openssl pkeyutl --encrypt --inkey public.pem --pubin --in mensaje.txt --out mensaje_secreto.txt
+```
+
+El comando anterior, nos habrá generado un nuevo fichero llamado mensaje_secreto.txt. Si intentamos ver su contenido, veremos que no somos capaces de leerlo.
+```bash
+❯ /bin/cat mensaje_secreto.txt                                                                                                                                          
+X�d検�d!�(#     
+```
 
 
 
