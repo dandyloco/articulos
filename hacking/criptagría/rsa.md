@@ -108,11 +108,11 @@ El comando anterior, nos habrá generado un nuevo fichero llamado mensaje_secret
 X�d検�d!�(#     
 ```
 
-# POC ¿Cómo podemos descifrar nuestro mensaje si no tenemos la clave pública?
+# POC: ¿Cómo podemos descifrar nuestro mensaje si no tenemos la clave pública?
 Partimos de un escenario, en el que solo poseemos la clave pública (public.pem) y el mensaje cifrado (mensaje_secreto.txt). 
 Para poder descifrar el mensaje, debemos conseguir la clave privada. </br>
 
-Los valores de "n" y "e", los podemos averiguar de la clave pública.
+Los valores de "n" y "e", necesarios para poder construir la clave privada, los podemos averiguar de la clave pública.
 ```bash
 ❯ python3                                                                                                                                                               
 Type "help", "copyright", "credits" or "license" for more information.
