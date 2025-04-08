@@ -126,9 +126,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-Teniendo esto en mente, podemos apoyarnos de la libreria SageMath para obtener los valores de "p" y "q".
-> [!NOTE]
+Teniendo esto en mente, podemos apoyarnos en la libreria SageMath para obtener los valores de "p" y "q".
+> [!TIP]
 > SageMath, conocido anteriormente como Sage, es un sistema algebraico computacional que destaca por estar construido sobre paquetes matemáticos ya contrastados como NumPy, Sympy, PARI/GP o Maxima y por acceder a sus potencias combinadas a través de un lenguaje común basado en Python.
+> https://sagemanifolds.obspm.fr/index.html
+
 
 
 
