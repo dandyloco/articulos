@@ -108,7 +108,26 @@ El comando anterior, nos habrá generado un nuevo fichero llamado mensaje_secret
 X�d検�d!�(#     
 ```
 
-# ¿Cómo podemos descifrar nuestro mensaje si no tenemos la clave pública?
+# POC ¿Cómo podemos descifrar nuestro mensaje si no tenemos la clave pública?
+Partimos de un escenario, en el que solo poseemos la clave pública (public.pem) y el mensaje cifrado (mensaje_secreto.txt). 
+Para poder descifrar el mensaje, debemos conseguir la clave privada. Por tanto, nuestro primer objetivo es intentar obtener los valores de los números primos "p" y "q". </br>
+
+Los valores de "n" y "e", los podemos averiguar de la clave pública.
+```bash
+❯ python3                                                                                                                                                               
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from Crypto.PublicKey import RSA
+>>> f=open("public.pem")
+>>> key=RSA.importKey(f.read())
+>>> print(key.n)
+3521851118865011044136429217528930691441965435121409905222808922963363310303627
+>>> print(key.e)
+65537
+>>> 
+```
+
+
+
 
 
 
