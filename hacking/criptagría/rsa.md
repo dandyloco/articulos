@@ -190,6 +190,7 @@ print(f"[+] Tiempo empleado: {end_time - start_time} segundos·")
 ```
 </br> 
 Su ejecucción, nos devolvería la clave privada en menos de 5 minutos.
+
 ```bash
 ❯python3 decrypt_message.py 
 1451730470513778492236629598992166035067
@@ -201,6 +202,12 @@ dLAeewIRByEYXnKHAJkGLfeRFWNNrDECEDFtgvfDornPakmYp9cEGX0CEQKaxbNj
 tgyy2z4Z7yhYMj1RAhEDFVxlFotvYZuSQ50G2V9JCQ==
 -----END RSA PRIVATE KEY-----
 [+] Tiempo empleado: 264.9520308971405 segundos·
+```
+
+Guardamos la clave privada que el script nos ha generado, en un fichero llamado private.pem. Por último, solo tenemos que usar la clave privada para descifrar el mensaje y ver su contenido.
+```bash
+❯ openssl pkeyutl -decrypt -inkey private.pem -in mensaje_secreto.txt                                                                                                   
+Mensaje secreto
 ```
 
 
