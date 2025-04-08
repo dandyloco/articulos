@@ -131,6 +131,61 @@ Teniendo esto en mente, podemos apoyarnos en la libreria SageMath para obtener l
 > SageMath, conocido anteriormente como Sage, es un sistema algebraico computacional que destaca por estar construido sobre paquetes matemáticos ya contrastados como NumPy, Sympy, PARI/GP o Maxima y por acceder a sus potencias combinadas a través de un lenguaje común basado en Python.
 > https://sagemanifolds.obspm.fr/index.html
 
+```bash
+#/usr/bin/env python3
+from Crypto.PublicKey import RSA
+from sage.all import *
+import time
+
+# inicio
+start_time = time.time()
+
+# Leemos la clave publica
+f=open("/home/kali/HTB/public.pem")
+key=RSA.importKey(f.read())
+
+# Obtenemos los valores de n y e
+n=key.n
+e=key.e
+
+# Con la funcion factor, obtenemos los valores de "p" y "q"
+p, q =  factor(n)
+
+# Los convertimos en en enteros para poder operar con ellos.
+p=int(p[0])
+q=int(q[0])
+
+print(p)
+print(q)
+
+# m la obtenemos de la siguiente formula
+m=n-(p+q-1)
+
+def egcd(a, b):
+    if a == 0:
+        return (b, 0, 1)
+    else:
+        g, y, x = egcd(b % a, a)
+        return (g, x - (b // a) * y, y)
+
+def modinv(a, m):
+    g, x, y = egcd(a, m)
+    if g != 1:
+        raise Exception('modular inverse does not exist')
+    else:
+        return x % m
+
+
+# Función modular multiplicativa inversa
+d=modinv(e, m)
+
+key=RSA.construct((n, e, d, p, q))
+print(key.exportKey().decode())
+
+# fin y calculamos tiempo que nos ha llevado
+end_time = time.time()
+print(f"[+] Tiempo empleado: {end_time - start_time} segundos·")
+```
 
 
 
