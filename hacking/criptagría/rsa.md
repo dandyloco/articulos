@@ -204,7 +204,7 @@ tgyy2z4Z7yhYMj1RAhEDFVxlFotvYZuSQ50G2V9JCQ==
 [+] Tiempo empleado: 264.9520308971405 segundos·
 ```
 
-Guardamos la clave privada que el script nos ha generado, en un fichero llamado private.pem. Por último, solo tenemos que usar la clave privada para descifrar el mensaje y ver su contenido.
+Guardaremos la clave privada que el script nos ha generado, en un fichero llamado private.pem. Por último, solo tenemos que usar la clave privada para descifrar el mensaje y ver su contenido.
 ```bash
 ❯ openssl pkeyutl -decrypt -inkey private.pem -in mensaje_secreto.txt                                                                                                   
 Mensaje secreto
