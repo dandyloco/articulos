@@ -68,6 +68,30 @@ print(key.exportKey().decode())
 ```
 
 # ¿Cómo podemos generar nuestra clave pública a raiz de nuestra clave privada?
+La clave privada generada anteriormente por nuestro script, la guardaremos en un fichero llamado private.pem.
+```bash
+❯ /bin/cat private.pem                                                                                                                                                                                                                   
+-----BEGIN RSA PRIVATE KEY-----
+MIGsAgEAAiEealEX7v6ob1L6oQgdQ7N5oMTL5L3zyY1ednofzGYveYsCAwEAAQIh
+DJwDFqsMhIPyoNlV5dwFciiNPXIxw4Tzip/5dnJ7QPnBAhEHIRhecocAmQYt95EV
+Y02sMQIRBEQpHlGz6l/RZnPpVnSwHnsCEQKaxbNjtgyy2z4Z7yhYMj1RAhAxbYL3
+w6K5z2pJmKfXBBl9AhEB+gEsX+Hc0oTV+aL00Zl5iQ==
+-----END RSA PRIVATE KEY-----
+
+```
+
+Con el siguiente comando de Linux, podemos crear la clave pública y la guardaremos un fichero llamado public.pem
+```bash
+❯ openssl rsa -in private.pem -pubout > public.pem                                                                                                                                                                             
+writing RSA key
+❯ /bin/cat public.pem                                                                                                                                                                                                                    
+-----BEGIN PUBLIC KEY-----
+MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhHmpRF+7+qG9S+qEIHUOzeaDEy+S988mN
+XnZ6H8xmL3mLAgMBAAE=
+-----END PUBLIC KEY-----
+```
+
+
 
 
 
