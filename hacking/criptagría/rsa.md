@@ -21,7 +21,7 @@ Para poder generar nuestra clave privada necesitaremos una serie de variables:
 - "p" y "q": Son dos números primos.
 - "n": Que es el resultado de multiplicar "p" y "q".
 - "e": Suele ser un valor fijo, 65537
-- "m": Que se obtiene de la fórmula n-(p+q-1)
+- "m": Que se obtiene de aplicar la fórmula n-(p+q-1)
 - "d": Que es el resultado de realizar la operación modular multiplicativa inversa de "e" y "m". A continuación, veremos cómo podemos generar nuestra clave privada mediante Python y la librería Crypto.
 
 Este sería el código completo de nuestro script, que genera nuestra clave privada.
