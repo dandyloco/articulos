@@ -80,7 +80,7 @@ w6K5z2pJmKfXBBl9AhEB+gEsX+Hc0oTV+aL00Zl5iQ==
 
 ```
 
-Con el siguiente comando de Linux, podemos crear la clave pública y la guardaremos un fichero llamado public.pem
+Con el siguiente comando de Linux, a partir de nuestra clave privada, podemos crear la clave pública y la guardaremos un fichero llamado public.pem
 ```bash
 ❯ openssl rsa -in private.pem -pubout > public.pem                                                                                                                                                                             
 writing RSA key
