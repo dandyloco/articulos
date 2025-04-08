@@ -15,7 +15,13 @@ Espero que con la siguiente imagen, quede un poco más claro este concepto:
 Sin embargo, si alguien mal intencionado interceptara la comunicación, no podría ver el mensaje dado que no poseerá la clave para descifrarlo, salvo que consiga romper el cifrado. Y, esto último, me lleva al siguiente punto, la importancia de la longitud de las claves RSA.
 <br>
 
-# POC: Importantacia de la longitud de las claves RSA
+# ¿Cómo podemos generar una clave privada?
+A continuación, veremos cómo podemos generar una clave privada mediante Python y la librería Crypto.
+
+Lo primero que 
+
+
+
 
 
 
