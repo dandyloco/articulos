@@ -12,7 +12,7 @@ Espero que con la siguiente imagen, quede un poco más claro este concepto:
     <img src="img/criptografiaAsimetrica.png" alt="Transmision mensaje RSA" width="300"  />
 </p>
 
-Sin embargo, si alguien mal intencionado interceptara la comunicación, no podría ver el mensaje dado que no poseerá la clave para descifrarlo, salvo que consiga romper el cifrado. Y, esto último, me lleva al siguiente punto, la importancia de la longitud de las claves RSA.
+Sin embargo, si alguien mal intencionado interceptara la comunicación, no podría ver el mensaje dado que no poseerá la clave para descifrarlo, salvo que consiga romper el cifrado. 
 <br>
 
 # ¿Cómo podemos generar nuestra clave privada?
